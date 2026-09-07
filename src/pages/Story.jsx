@@ -8,32 +8,32 @@ const sections = [
   [
     'Why Stitch',
     'Our story begins with a simple idea: clothes should be made around people, not standard sizes. We cut each garment around the person wearing it.',
-    images.storyWhyStitch
+    images.heritage
   ],
   [
     'How We Work',
     'Every client begins with a conversation. We look at how you dress, where you\'ll wear the garment, how you stand and how you want it to feel.',
-    images.storyHowWeWork
+    images.consultation
   ],
   [
     'The Atelier',
     'A calm space for fittings, fabric consultations and the small decisions that shape a bespoke garment. Appointments are by booking only.',
-    images.storyAtelier
+    images.studio
   ],
   [
     'The People',
     'Pattern making, cutting, canvas construction and hand finishing. Each stage is handled by craftspeople who understand how the parts connect.',
-    images.storyPeople
+    images.team
   ],
   [
     'What We Care About',
     'Fit that works with posture and movement. Cloth chosen for purpose and climate. Construction that lasts. Details finished by hand where it matters.',
-    images.storyCare
+    images.handwork
   ],
   [
     'What Happens Next',
     'Book a fitting. We\'ll talk about what you need, show fabric samples, take measurements and explain how the process works from there.',
-    images.storyNext
+    images.measuring
   ]
 ];
 
@@ -44,7 +44,7 @@ export default function Story() {
         eyebrow="OUR STORY" 
         title={<>Made Around You,<br />Not Around A Size.</>}
         copy="A contemporary tailoring house in Kathmandu focused on personal fit, precise construction and honest service." 
-        image={images.storyHero} 
+        image={images.studio} 
       />
       
       <section className="py-24 sm:py-32">

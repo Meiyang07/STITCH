@@ -26,8 +26,7 @@ const groups = [
       ['Contact', '/contact'], 
       ['FAQs', '/faq'], 
       ['Book Appointment', '/appointment'], 
-      ['Measurement Guide', '/measurements'],
-      ['Login', '/login']
+      ['Measurement Guide', '/measurements']
     ]
   ],
 ];

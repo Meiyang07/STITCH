@@ -4,7 +4,7 @@ import Button from '../components/common/Button';
 import SectionHeader from '../components/common/SectionHeader';
 import useLocalStorage from '../hooks/useLocalStorage';
 
-const services = ['Bespoke Suit','Double-Breasted Suit','Summer Linen Suit','Business Three-Piece Suit',"Women's Bespoke Tailoring","Women's Skirt Suit",'Wedding Suit','Groom Reception Suit','Groomsmen Tailoring',"Women's Wedding Tailoring",'Shirt','Oxford Shirt','Linen Shirt','Tuxedo',"Women's Tuxedo",'Blazer','Dinner Jacket','Trousers','Waistcoat',"Women's Waistcoat Set",'Traditional Wear','Gurung Traditional Dress','Newar Traditional Dress','Magar Traditional Dress','Tamang Traditional Dress','Alteration','Style Consultation'];
+const services = ['Bespoke Suit','Wedding Suit','Shirt','Tuxedo','Traditional Wear','Alteration','Style Consultation'];
 const times = ['10:00 AM','11:30 AM','1:00 PM','2:30 PM','4:00 PM','5:30 PM'];
 const steps = ['Service','Location','Date','Time','Details','Notes','Confirm'];
 

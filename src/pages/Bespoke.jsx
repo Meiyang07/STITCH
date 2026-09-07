@@ -11,37 +11,37 @@ const steps = [
     '01', 
     'Conversation', 
     'Tell us where the garment is going and how you like to wear your clothes. We look at fit, posture, occasion and what you already own.', 
-    images.bespokeConsultation
+    images.consultation
   ],
   [
     '02', 
     'Fabric', 
     'Choose the cloth, weight, texture and colour that make sense for you. We explain what works where and why.', 
-    images.bespokeFabric
+    images.fabric_detail
   ],
   [
     '03', 
     'Measurements', 
     'We take detailed body and posture measurements. These are combined with observations about how you stand and move.', 
-    images.bespokeMeasurements
+    images.measuring
   ],
   [
     '04', 
     'First Fitting', 
     'The first fitting is where proportions begin to settle. Balance, shoulder line, length and comfort are checked.', 
-    images.bespokeFitting
+    images.fitting
   ],
   [
     '05', 
     'Refinement', 
     'Small adjustments make the difference. Sleeve pitch, suppression, break and stance are tuned to the body.', 
-    images.bespokeRefinement
+    images.handwork
   ],
   [
     '06', 
     'Final Fitting', 
     'Pressed, checked and ready to wear. We share care guidance so the fit and cloth continue to perform well.', 
-    images.bespokeFinal
+    images.pressing
   ]
 ];
 
@@ -52,7 +52,7 @@ export default function Bespoke() {
         eyebrow="THE BESPOKE EXPERIENCE" 
         title={<>Not Made To Size.<br />Made Around You.</>} 
         copy="A bespoke garment is built as a sequence of decisions around the individual—cloth, pattern, structure, proportion and fitting." 
-        image={images.bespokeHero} 
+        image={images.hero} 
       />
       
       <section className="py-24 sm:py-32">

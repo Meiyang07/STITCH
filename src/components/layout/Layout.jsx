@@ -22,10 +22,7 @@ export default function Layout() {
       '/measurements': 'Measurement Guide | Stitch',
       '/wishlist': 'Wishlist | Stitch',
       '/contact': 'Custom Tailoring Kathmandu | Stitch',
-      '/faq': 'Tailoring FAQs | Stitch',
-      '/login': 'Login | Stitch',
-      '/account': 'My Account | Stitch',
-      '/admin': 'Admin Dashboard | Stitch'
+      '/faq': 'Tailoring FAQs | Stitch'
     };
     document.title = titles[location.pathname] || (location.pathname.startsWith('/style/') ? 'Bespoke Style | Stitch' : 'Stitch — Bespoke Tailoring');
   }, [location.pathname]);

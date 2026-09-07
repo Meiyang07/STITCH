@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import ScrollToTop from './components/common/ScrollToTop';
 import Appointment from './pages/Appointment';
@@ -15,9 +15,6 @@ import ProductDetail from './pages/ProductDetail';
 import Story from './pages/Story';
 import Wedding from './pages/Wedding';
 import Wishlist from './pages/Wishlist';
-import Login from './pages/Login';
-import Account from './pages/Account';
-import AdminDashboard from './pages/AdminDashboard';
 
 export default function App(){
   return <><ScrollToTop/><Routes><Route element={<Layout/>}>
@@ -36,11 +33,6 @@ export default function App(){
     <Route path="/appointment" element={<Appointment/>}/>
     <Route path="/measurements" element={<Measurements/>}/>
     <Route path="/wishlist" element={<Wishlist/>}/>
-    <Route path="/login" element={<Login/>}/>
-    <Route path="/login/customer" element={<Navigate to="/login" replace/>}/>
-    <Route path="/login/admin" element={<Navigate to="/login" replace/>}/>
-    <Route path="/account" element={<Account/>}/>
-    <Route path="/admin" element={<AdminDashboard/>}/>
     <Route path="/contact" element={<Contact/>}/>
     <Route path="/faq" element={<FAQ/>}/>
     <Route path="*" element={<NotFound/>}/>

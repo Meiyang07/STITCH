@@ -10,7 +10,7 @@ export const fabricGroups = [
     composition: '100% Merino Wool', 
     weight: '260g', 
     code: 'IT-260-NV', 
-    image: '', 
+    image: 'https://images.unsplash.com/photo-1598032895397-b9472444bf93?auto=format&fit=crop&w=1000&q=85', 
     description: 'Smooth, breathable cloth suited to year-round tailoring.' 
   },
   { 
@@ -24,7 +24,7 @@ export const fabricGroups = [
     composition: '100% Wool', 
     weight: '320g', 
     code: 'EN-320-CH', 
-    image: '', 
+    image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=1000&q=85', 
     description: 'Structured cloth with a discreet herringbone weave.' 
   },
   { 
@@ -38,7 +38,7 @@ export const fabricGroups = [
     composition: '100% Linen', 
     weight: '220g', 
     code: 'LN-220-SD', 
-    image: '', 
+    image: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1000&q=85', 
     description: 'Breathable and naturally textured. Develops character with wear.' 
   },
   { 
@@ -52,7 +52,7 @@ export const fabricGroups = [
     composition: '90% Wool / 10% Cashmere', 
     weight: '300g', 
     code: 'CA-300-CM', 
-    image: '', 
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=85', 
     description: 'Soft and warm with a smooth surface.' 
   },
   { 
@@ -66,7 +66,7 @@ export const fabricGroups = [
     composition: '100% Cotton', 
     weight: '130g', 
     code: 'CT-130-WH', 
-    image: '', 
+    image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1000&q=85', 
     description: 'Breathable shirting cotton with a clean finish.' 
   },
   { 
@@ -80,7 +80,7 @@ export const fabricGroups = [
     composition: 'Cotton Velvet', 
     weight: '350g', 
     code: 'VT-350-BG', 
-    image: '', 
+    image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=85', 
     description: 'Dense evening velvet for statement dinner jackets.' 
   },
   { 
@@ -94,7 +94,7 @@ export const fabricGroups = [
     composition: '95% Wool / 5% Elastane', 
     weight: '270g', 
     code: 'WB-270-BL', 
-    image: '', 
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=85', 
     description: 'A restrained check with comfortable stretch.' 
   },
   { 
@@ -108,7 +108,7 @@ export const fabricGroups = [
     composition: '100% Wool', 
     weight: '250g', 
     code: 'WP-250-PS', 
-    image: '', 
+    image: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85', 
     description: 'Classic business stripe with a smooth, dry handle.' 
   },
   { 
@@ -122,91 +122,7 @@ export const fabricGroups = [
     composition: '80% Wool / 20% Viscose', 
     weight: '300g', 
     code: 'CK-300-BR', 
-    image: '', 
+    image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1000&q=85', 
     description: 'Warm checked cloth for relaxed jackets and waistcoats.' 
-  },
-  {
-    id: 'f10',
-    name: 'Nepali Dhaka Weave',
-    material: 'Cotton',
-    color: 'Multicolor',
-    pattern: 'Geometric',
-    season: 'All Season',
-    occasion: 'Traditional',
-    composition: 'Cotton-based woven yarns (varies by weave)',
-    weight: 'Varies',
-    code: 'NP-DH-01',
-    image: '',
-    description: 'A Nepal-inspired Dhaka option with distinctive geometric patterning for waistcoats, accents and traditional tailoring.'
-  },
-  {
-    id: 'f11',
-    name: 'Allo Himalayan Nettle',
-    material: 'Allo',
-    color: 'Natural',
-    pattern: 'Handwoven',
-    season: 'Spring/Summer',
-    occasion: 'Traditional',
-    composition: 'Himalayan nettle fibre (Allo)',
-    weight: 'Medium',
-    code: 'NP-AL-02',
-    image: '',
-    description: 'A naturally textured Allo option suited to relaxed tailoring, traditional pieces and handcrafted details.'
-  },
-  {
-    id: 'f12',
-    name: 'Nepali Handwoven Cotton',
-    material: 'Cotton',
-    color: 'Ecru',
-    pattern: 'Handwoven',
-    season: 'All Season',
-    occasion: 'Casual',
-    composition: 'Handwoven cotton',
-    weight: 'Medium',
-    code: 'NP-HC-03',
-    image: '',
-    description: 'A breathable handwoven cotton option with visible texture for shirts, waistcoats and relaxed jackets.'
-  },
-  {
-    id: 'f13',
-    name: 'Nepali Pashmina Blend',
-    material: 'Pashmina',
-    color: 'Charcoal',
-    pattern: 'Solid',
-    season: 'Autumn/Winter',
-    occasion: 'Formal',
-    composition: 'Pashmina / wool blend',
-    weight: 'Light–Medium',
-    code: 'NP-PS-04',
-    image: '',
-    description: 'A soft pashmina-blend option for refined cold-weather tailoring, jackets and finishing details.'
-  },
-  {
-    id: 'f14',
-    name: 'Nepali Hemp–Cotton',
-    material: 'Hemp Blend',
-    color: 'Olive',
-    pattern: 'Textured',
-    season: 'Spring/Summer',
-    occasion: 'Casual',
-    composition: 'Hemp / cotton blend',
-    weight: 'Medium',
-    code: 'NP-HP-05',
-    image: '',
-    description: 'A textured hemp-cotton option for breathable casual jackets, trousers and relaxed tailoring.'
-  },
-  {
-    id: 'f15',
-    name: 'Dhaka Accent Jacquard',
-    material: 'Cotton',
-    color: 'Red',
-    pattern: 'Geometric',
-    season: 'All Season',
-    occasion: 'Formal',
-    composition: 'Patterned woven cotton blend',
-    weight: 'Medium',
-    code: 'NP-DJ-06',
-    image: '',
-    description: 'A patterned Dhaka-inspired accent cloth for waistcoats, pocket details, collars and statement panels.'
   }
 ];

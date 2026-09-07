@@ -7,42 +7,42 @@ const craft = [
   [
     'Pattern Making',
     'Measurements become a two-dimensional pattern shaped around posture, balance and the silhouette you want.',
-    images.craftsmanshipPattern
+    images.pattern
   ],
   [
     'Cutting',
     'Cloth is aligned, checked and cut with allowance for fitting and refinement.',
-    images.craftsmanshipCutting
+    images.cutting
   ],
   [
     'Canvas Construction',
     'Internal structure supports the jacket front while allowing it to settle and move with the wearer.',
-    images.craftsmanshipCanvas
+    images.handwork
   ],
   [
     'Hand Finishing',
     'Small details are finished by hand where it matters. Not for show, but for how it holds and wears.',
-    images.craftsmanshipHandFinishing
+    images.handwork
   ],
   [
     'Buttonholes',
     'Clean buttonholes and balanced button placement. They reward close inspection without demanding attention.',
-    images.craftsmanshipButtonholes
+    images.buttons
   ],
   [
     'Fitting',
     'The fitting translates a static pattern into a garment that works while standing, sitting and moving.',
-    images.craftsmanshipFitting
+    images.fitting
   ],
   [
     'Pressing',
     'Pressing shapes cloth and seam rather than simply flattening them. It\'s part of construction, not just finishing.',
-    images.craftsmanshipPressing
+    images.pressing
   ],
   [
     'Final Check',
     'Edges, lining, closures and final corrections are checked before the garment leaves the atelier.',
-    images.craftsmanshipFinal
+    images.consultation
   ]
 ];
 
@@ -53,7 +53,7 @@ export default function Craftsmanship() {
         eyebrow="OUR CRAFT" 
         title={<>Made By Hand.<br />Measured Twice.</>} 
         copy="A good suit should feel like yours before anyone notices the tailoring. That comes from pattern, cut, canvas, stitch and fitting." 
-        image={images.craftsmanshipHero} 
+        image={images.pattern} 
       />
       
       <section className="py-24 sm:py-32">

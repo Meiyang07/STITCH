@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import AppointmentCTA from '../components/common/AppointmentCTA';
 import Button from '../components/common/Button';
 import ImageReveal from '../components/common/ImageReveal';
-import ImageSlot from '../components/common/ImageSlot';
 import Newsletter from '../components/common/Newsletter';
 import SectionHeader from '../components/common/SectionHeader';
 import CollectionCard from '../components/collections/CollectionCard';
@@ -57,20 +56,14 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative flex min-h-screen items-end overflow-hidden bg-ink text-white">
-        {images.homeHero ? (
-          <motion.img 
-            initial={{ scale: 1.05 }} 
-            animate={{ scale: 1 }} 
-            transition={{ duration: 10, ease: 'linear' }} 
-            src={images.homeHero} 
-            alt={images.homeHeroAlt} 
-            className="absolute inset-0 h-full w-full object-cover" 
-          />
-        ) : (
-          <div className="absolute inset-0 bg-[#252525]">
-            <ImageSlot label="Home hero image" className="border-0 bg-transparent text-white" />
-          </div>
-        )}
+        <motion.img 
+          initial={{ scale: 1.05 }} 
+          animate={{ scale: 1 }} 
+          transition={{ duration: 10, ease: 'linear' }} 
+          src={images.hero} 
+          alt={images.heroAlt} 
+          className="absolute inset-0 h-full w-full object-cover" 
+        />
         <div className="hero-gradient absolute inset-0" />
         <div className="container-lux relative z-10 pb-16 pt-40 sm:pb-24 lg:pb-28">
           <motion.p 
@@ -129,8 +122,8 @@ export default function Home() {
             </p>
           </div>
           <ImageReveal 
-            src={images.homeIntroduction} 
-            alt={images.homeIntroductionAlt} 
+            src={images.measuring} 
+            alt={images.measuringAlt} 
             className="aspect-[4/5] lg:ml-auto lg:w-[90%]" 
           />
         </div>
@@ -176,8 +169,8 @@ export default function Home() {
       {/* Craftsmanship Split */}
       <section className="grid min-h-[680px] lg:grid-cols-2">
         <ImageReveal 
-          src={images.homeCraftsmanship} 
-          alt={images.homeCraftsmanshipAlt} 
+          src={images.pattern} 
+          alt={images.patternAlt} 
           className="min-h-[480px]" 
         />
         <div className="flex items-center bg-cream px-5 py-20 sm:px-10 lg:px-16 xl:px-24">
@@ -226,16 +219,12 @@ export default function Home() {
                 className="group min-w-[260px] sm:min-w-[320px]"
               >
                 <div className="aspect-square overflow-hidden bg-warm">
-                  {f.image ? (
-                    <img 
-                      src={f.image} 
-                      alt={f.name} 
-                      loading="lazy" 
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" 
-                    />
-                  ) : (
-                    <ImageSlot label={`${f.name} fabric`} />
-                  )}
+                  <img 
+                    src={f.image} 
+                    alt={f.name} 
+                    loading="lazy" 
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" 
+                  />
                 </div>
                 <div className="mt-4 border-t border-black/15 pt-4">
                   <p className="text-[10px] uppercase tracking-[.18em] text-gold">{f.season}</p>
@@ -253,18 +242,12 @@ export default function Home() {
 
       {/* Wedding */}
       <section className="relative min-h-[72vh] overflow-hidden bg-ink text-white">
-        {images.homeWedding ? (
-          <img 
-            src={images.homeWedding} 
-            alt={images.homeWeddingAlt} 
-            loading="lazy" 
-            className="absolute inset-0 h-full w-full object-cover opacity-60" 
-          />
-        ) : (
-          <div className="absolute inset-0 bg-[#252525]">
-            <ImageSlot label="Home wedding image" className="border-0 bg-transparent" />
-          </div>
-        )}
+        <img 
+          src={images.wedding_hero} 
+          alt={images.weddingHeroAlt} 
+          loading="lazy" 
+          className="absolute inset-0 h-full w-full object-cover opacity-60" 
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
         <div className="container-lux relative z-10 flex min-h-[72vh] items-center py-24">
           <div className="max-w-2xl">
@@ -374,16 +357,12 @@ export default function Home() {
                   i === 1 || i === 4 ? 'aspect-[3/4]' : 'aspect-square'
                 }`}
               >
-                {item.src ? (
-                  <img 
-                    src={item.src} 
-                    alt={item.alt} 
-                    loading="lazy" 
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                  />
-                ) : (
-                  <ImageSlot label={`${item.label} image`} />
-                )}
+                <img 
+                  src={item.src} 
+                  alt={item.alt} 
+                  loading="lazy" 
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                />
                 <div className="absolute inset-0 flex items-end bg-black/0 p-4 transition-colors group-hover:bg-black/35">
                   <span className="translate-y-3 text-[9px] uppercase tracking-[.2em] text-white opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
                     {item.label}

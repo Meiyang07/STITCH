@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AppointmentCTA from '../components/common/AppointmentCTA';
 import Button from '../components/common/Button';
-import ImageSlot from '../components/common/ImageSlot';
 import CollectionCard from '../components/collections/CollectionCard';
 import { useWishlist } from '../context/WishlistContext';
 import siteConfig from '../config/siteConfig';
@@ -26,7 +25,7 @@ export default function ProductDetail() {
   const recommended = collections.filter(x => x.id !== item.id).slice(0,3);
   return <>
     <section className="pb-20 pt-28 sm:pt-32"><div className="container-lux grid gap-10 lg:grid-cols-[1.18fr_.82fr]">
-      <div className="grid gap-3 sm:grid-cols-2">{item.gallery.map((src,i)=><div key={`${item.id}-${i}`} className={`${i===0?'aspect-[4/5] sm:col-span-2':'aspect-[4/5]'}`}>{src ? <img src={src} alt={`${item.name} view ${i+1}`} className="h-full w-full object-cover" /> : <ImageSlot label={`${item.name} image ${i+1}`} />}</div>)}</div>
+      <div className="grid gap-3 sm:grid-cols-2">{item.gallery.map((src,i)=><img key={src} src={src} alt={`${item.name} view ${i+1}`} className={`w-full object-cover ${i===0?'aspect-[4/5] sm:col-span-2':'aspect-[4/5]'}`} />)}</div>
       <div className="lg:sticky lg:top-28 lg:self-start"><p className="eyebrow">{item.type}</p><h1 className="mt-4 font-serif text-5xl sm:text-6xl">{item.name}</h1><p className="mt-4 text-sm font-medium">From NPR {item.price.toLocaleString()}</p><p className="mt-6 text-sm leading-7 text-muted">{item.description}</p>
         <div className="mt-8 border-y border-black/15 py-6"><div className="grid gap-5 sm:grid-cols-2"><div><p className="eyebrow">FABRICS</p><p className="mt-2 text-sm leading-6 text-muted">{item.fabrics.join(', ')}</p></div><div><p className="eyebrow">COLORS</p><p className="mt-2 text-sm leading-6 text-muted">{item.colors.join(', ')}</p></div></div></div>
         <div className="mt-7 space-y-3"><Button to="/appointment" className="w-full">Book a Fitting</Button><Button onClick={() => toggle({id:item.id, kind:'style', name:item.name, image:item.image, slug:item.slug, price:item.price})} variant="outline" className="w-full"><Heart size={15} fill={saved?'currentColor':'none'} /> {saved?'Saved to Wishlist':'Add to Wishlist'}</Button><Button href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g,'')}?text=${encodeURIComponent(`Hello, I am interested in ${item.name}.`)}`} target="_blank" rel="noreferrer" variant="outline" className="w-full"><MessageCircle size={15}/> Inquire on WhatsApp</Button></div>

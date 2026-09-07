@@ -2,7 +2,6 @@ import { Heart, Menu, Search, UserRound } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import siteConfig from '../../config/siteConfig';
-import { useAuth } from '../../context/AuthContext';
 import { useWishlist } from '../../context/WishlistContext';
 import MobileMenu from './MobileMenu';
 
@@ -20,10 +19,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
   const { wishlist } = useWishlist();
-  const { session } = useAuth();
   const overlayRoutes = ['/', '/bespoke', '/wedding', '/craftsmanship', '/story'];
   const transparent = overlayRoutes.includes(pathname) && !scrolled;
-  const accountPath = session?.role === 'admin' ? '/admin' : session?.role === 'customer' ? '/account' : '/login';
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40);
@@ -52,24 +49,47 @@ export default function Navbar() {
             ))}
           </nav>
           <div className="flex items-center gap-1 sm:gap-2">
-            <Link aria-label="Search collections" to="/collections" className="focus-lux hidden p-2 transition-opacity hover:opacity-70 sm:block">
+            <Link 
+              aria-label="Search collections" 
+              to="/collections" 
+              className="focus-lux hidden p-2 transition-opacity hover:opacity-70 sm:block"
+            >
               <Search size={18} strokeWidth={1.8} />
             </Link>
-            <Link aria-label={`Wishlist with ${wishlist.length} items`} to="/wishlist" className="focus-lux relative p-2 transition-opacity hover:opacity-70">
+            <Link 
+              aria-label={`Wishlist with ${wishlist.length} items`} 
+              to="/wishlist" 
+              className="focus-lux relative p-2 transition-opacity hover:opacity-70"
+            >
               <Heart size={18} strokeWidth={1.8} />
-              {wishlist.length > 0 && <span className="absolute right-0 top-0 min-w-4 rounded-full bg-gold px-1 text-center text-[9px] leading-4 text-white">{wishlist.length}</span>}
+              {wishlist.length > 0 && (
+                <span className="absolute right-0 top-0 min-w-4 rounded-full bg-gold px-1 text-center text-[9px] leading-4 text-white">
+                  {wishlist.length}
+                </span>
+              )}
             </Link>
-            <Link aria-label={session ? `${session.role} account` : 'Login'} to={accountPath} className="focus-lux hidden p-2 transition-opacity hover:opacity-70 sm:block">
+            <Link 
+              aria-label="Account" 
+              to="/measurements" 
+              className="focus-lux hidden p-2 transition-opacity hover:opacity-70 sm:block"
+            >
               <UserRound size={18} strokeWidth={1.8} />
             </Link>
-            {!session && <Link to="/login" className="focus-lux hidden px-2 py-2 text-[10px] uppercase tracking-[.16em] transition-colors hover:text-gold xl:block">Login</Link>}
             <Link 
               to="/appointment" 
-              className={`focus-lux ml-2 hidden border px-4 py-2.5 text-[10px] uppercase tracking-[.16em] transition-colors md:block ${transparent ? 'border-white/60 hover:border-gold hover:text-gold' : 'border-ink hover:border-gold hover:text-gold'}`}
+              className={`focus-lux ml-2 hidden border px-4 py-2.5 text-[10px] uppercase tracking-[.16em] transition-colors md:block ${
+                transparent 
+                  ? 'border-white/60 hover:border-gold hover:text-gold' 
+                  : 'border-ink hover:border-gold hover:text-gold'
+              }`}
             >
               Book Appointment
             </Link>
-            <button aria-label="Open navigation menu" onClick={() => setMenuOpen(true)} className="focus-lux p-2 transition-opacity hover:opacity-70 lg:hidden">
+            <button 
+              aria-label="Open navigation menu" 
+              onClick={() => setMenuOpen(true)} 
+              className="focus-lux p-2 transition-opacity hover:opacity-70 lg:hidden"
+            >
               <Menu size={22} strokeWidth={1.8} />
             </button>
           </div>

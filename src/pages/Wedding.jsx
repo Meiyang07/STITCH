@@ -9,27 +9,27 @@ const looks = [
   [
     'Groom', 
     'A singular suit built around the ceremony, venue, season and personal style.', 
-    images.weddingGroom
+    images.wedding_hero
   ],
   [
     'Groomsmen', 
     'Coordinated without making everyone identical. Cloth, tone and details can create visual cohesion.', 
-    images.weddingGroomsmen
+    images.navy_suit
   ],
   [
     'Reception', 
     'A second look can move from ceremonial formality to a sharper evening silhouette.', 
-    images.weddingReception
+    images.tuxedo
   ],
   [
     'Engagement', 
     'Tailoring with enough refinement for the event and enough versatility for afterwards.', 
-    images.weddingEngagement
+    images.blazer
   ],
   [
     'Traditional', 
     'Daura Suruwal and waistcoat tailoring can be coordinated with the wider wedding wardrobe.', 
-    images.weddingTraditional
+    'https://images.unsplash.com/photo-1619533394727-57d522857f89?auto=format&fit=crop&w=1200&q=85'
   ]
 ];
 
@@ -40,7 +40,7 @@ export default function Wedding() {
         eyebrow="THE WEDDING EDIT" 
         title={<>A Suit Worth<br />Remembering.</>} 
         copy="From the first fitting to the final week, we build the suit around the day you're planning." 
-        image={images.weddingHero} 
+        image={images.wedding_hero} 
       />
       
       <section className="py-24 sm:py-32">
@@ -96,7 +96,7 @@ export default function Wedding() {
       <section className="py-24 sm:py-32">
         <div className="container-lux grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-16">
           <ImageReveal 
-            src={images.weddingDetail} 
+            src={images.wedding_detail} 
             alt="Wedding party tailoring" 
             className="aspect-[4/3]" 
           />
