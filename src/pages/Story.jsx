@@ -8,7 +8,7 @@ const sections = [
   [
     'Why Stitch',
     'Our story begins with a simple idea: clothes should be made around people, not standard sizes. We cut each garment around the person wearing it.',
-    images.heritage
+    images.story_feature
   ],
   [
     'How We Work',
@@ -43,7 +43,7 @@ export default function Story() {
       <PageHero 
         eyebrow="OUR STORY" 
         title={<>Made Around You,<br />Not Around A Size.</>}
-        copy="A contemporary tailoring house in Kathmandu focused on personal fit, precise construction and honest service." 
+        copy="A contemporary tailoring house in Pokhara focused on personal fit, precise construction and honest service." 
         image={images.studio} 
       />
       
@@ -52,9 +52,24 @@ export default function Story() {
           <SectionHeader 
             label="WHO WE ARE" 
             title="The Story So Far" 
-            copy="A straightforward approach to bespoke tailoring. No invented heritage, no exaggerated claims. Just measured, personal service." 
+            copy="STITCH is built around a simple contemporary idea: make fewer assumptions, ask better questions and cut the garment around the person wearing it." 
           />
-          <div className="mt-20 space-y-28">
+
+          <div className="mt-12">
+            <ImageReveal
+              src={images.story_feature}
+              alt={images.storyFeatureAlt}
+              className="aspect-[16/8] sm:aspect-[16/7]"
+              imgClassName="object-center"
+              eager
+            />
+            <div className="mt-4 flex items-center justify-between gap-6 border-t border-black/10 pt-4 text-[9px] uppercase tracking-[.2em] text-muted">
+              <span>Inside STITCH</span>
+              <span>Pokhara · By appointment</span>
+            </div>
+          </div>
+
+          <div className="mt-20 space-y-24 sm:space-y-28">
             {sections.map(([title, copy, image], i) => (
               <div 
                 key={title} 

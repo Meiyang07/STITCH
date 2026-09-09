@@ -1,4 +1,4 @@
-export const collectionFilters = ['All', 'Business', 'Wedding', 'Formal', 'Traditional'];
+export const collectionFilters = ['All', 'Business', 'Wedding', 'Formal', 'Traditional', 'Accessories'];
 
 export const collections = [
   {
@@ -9,11 +9,11 @@ export const collections = [
     category: 'Business',
     type: 'Suits',
     price: 24500,
-    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1400&q=85',
+    image: 'https://images.pexels.com/photos/6764954/pexels-photo-6764954.jpeg?auto=compress&cs=tinysrgb&w=1600',
     gallery: [
-      'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=1600&q=85'
+      'https://images.pexels.com/photos/6764954/pexels-photo-6764954.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/16299076/pexels-photo-16299076.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/37251962/pexels-photo-37251962.jpeg?auto=compress&cs=tinysrgb&w=1600'
     ],
     description: 'A clean two-piece silhouette tailored around posture and daily movement.',
     fabrics: ['Super 120s Wool', 'Wool–Cashmere', 'Tropical Wool'],
@@ -29,10 +29,10 @@ export const collections = [
     category: 'Wedding',
     type: 'Wedding',
     price: 32000,
-    image: 'https://images.unsplash.com/photo-1598808503746-f34c53b9323e?auto=format&fit=crop&w=1400&q=85',
+    image: 'https://images.pexels.com/photos/19380822/pexels-photo-19380822.jpeg?auto=compress&cs=tinysrgb&w=1600',
     gallery: [
-      'https://images.unsplash.com/photo-1598808503746-f34c53b9323e?auto=format&fit=crop&w=1600&q=85',
-      'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1600&q=85'
+      'https://images.pexels.com/photos/19380822/pexels-photo-19380822.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      'https://images.pexels.com/photos/34191833/pexels-photo-34191833.jpeg?auto=compress&cs=tinysrgb&w=1600'
     ],
     description: 'A refined wedding composition designed for ceremony, photography and comfort.',
     fabrics: ['Merino Wool', 'Silk Blend', 'Textured Wool'],
@@ -48,8 +48,8 @@ export const collections = [
     category: 'Formal',
     type: 'Tuxedos',
     price: 29500,
-    image: 'https://images.unsplash.com/photo-1555069519-127aadedf1ee?auto=format&fit=crop&w=1400&q=85',
-    gallery: ['https://images.unsplash.com/photo-1555069519-127aadedf1ee?auto=format&fit=crop&w=1600&q=85'],
+    image: 'https://images.pexels.com/photos/16213983/pexels-photo-16213983.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    gallery: ['https://images.pexels.com/photos/16213983/pexels-photo-16213983.jpeg?auto=compress&cs=tinysrgb&w=1600'],
     description: 'Classic black-tie tailoring with satin facings and precise evening proportions.',
     fabrics: ['Barathea Wool', 'Mohair Blend'],
     colors: ['Black', 'Midnight Blue'],
@@ -64,8 +64,8 @@ export const collections = [
     category: 'Business',
     type: 'Blazers',
     price: 18500,
-    image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1400&q=85',
-    gallery: ['https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1600&q=85'],
+    image: 'https://images.pexels.com/photos/7778197/pexels-photo-7778197.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    gallery: ['https://images.pexels.com/photos/7778197/pexels-photo-7778197.jpeg?auto=compress&cs=tinysrgb&w=1600'],
     description: 'Relaxed tailoring for smart everyday dressing. Lighter internal construction.',
     fabrics: ['Hopsack Wool', 'Linen Blend', 'Cotton Twill'],
     colors: ['Navy', 'Olive', 'Camel'],
@@ -80,8 +80,8 @@ export const collections = [
     category: 'Formal',
     type: 'Shirts',
     price: 6500,
-    image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=1400&q=85',
-    gallery: ['https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=1600&q=85'],
+    image: 'https://images.pexels.com/photos/9889565/pexels-photo-9889565.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    gallery: ['https://images.pexels.com/photos/9889565/pexels-photo-9889565.jpeg?auto=compress&cs=tinysrgb&w=1600'],
     description: 'A crisp custom shirt built from individual collar, cuff and body measurements.',
     fabrics: ['Egyptian Cotton', 'Oxford Cotton', 'Poplin'],
     colors: ['White', 'Sky', 'Ecru'],
@@ -96,8 +96,8 @@ export const collections = [
     category: 'Traditional',
     type: 'Traditional Wear',
     price: 22000,
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80',
-    gallery: ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1600&q=80'],
+    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/National_dress%2C_Nepalese_%28AM_2015.99.1-5%29.jpg',
+    gallery: ['https://upload.wikimedia.org/wikipedia/commons/6/6a/National_dress%2C_Nepalese_%28AM_2015.99.1-5%29.jpg'],
     description: 'A respectful contemporary interpretation of Nepalese formalwear, cut to the client’s proportions.',
     fabrics: ['Fine Cotton', 'Wool Blend', 'Textured Weave'],
     colors: ['Cream', 'Black', 'Maroon'],
@@ -112,8 +112,8 @@ export const collections = [
     category: 'Business',
     type: 'Trousers',
     price: 8500,
-    image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=1400&q=80',
-    gallery: ['https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=1600&q=80'],
+    image: 'https://images.pexels.com/photos/6046203/pexels-photo-6046203.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    gallery: ['https://images.pexels.com/photos/6046203/pexels-photo-6046203.jpeg?auto=compress&cs=tinysrgb&w=1600'],
     description: 'Balanced rise, clean line and individually tuned leg shape for daily wear.',
     fabrics: ['Worsted Wool', 'Cotton', 'Linen Blend'],
     colors: ['Charcoal', 'Navy', 'Stone'],
@@ -128,8 +128,8 @@ export const collections = [
     category: 'Wedding',
     type: 'Waistcoats',
     price: 9500,
-    image: 'https://images.unsplash.com/photo-1619533394727-57d522857f89?auto=format&fit=crop&w=1400&q=80',
-    gallery: ['https://images.unsplash.com/photo-1619533394727-57d522857f89?auto=format&fit=crop&w=1600&q=80'],
+    image: 'https://images.pexels.com/photos/7147464/pexels-photo-7147464.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    gallery: ['https://images.pexels.com/photos/7147464/pexels-photo-7147464.jpeg?auto=compress&cs=tinysrgb&w=1600'],
     description: 'A tailored layer for weddings and formal occasions, designed to work under or without a jacket.',
     fabrics: ['Wool', 'Silk Blend', 'Jacquard'],
     colors: ['Stone', 'Wine', 'Navy'],

@@ -51,8 +51,9 @@ export default function Bespoke() {
       <PageHero 
         eyebrow="THE BESPOKE EXPERIENCE" 
         title={<>Not Made To Size.<br />Made Around You.</>} 
-        copy="A bespoke garment is built as a sequence of decisions around the individual—cloth, pattern, structure, proportion and fitting." 
-        image={images.hero} 
+        copy="We begin with how the garment needs to work: where you will wear it, how you move, the climate and the silhouette you prefer. The pattern follows from there." 
+        image={images.bespoke_feature}
+        imagePosition="center 42%"
       />
       
       <section className="py-24 sm:py-32">
@@ -62,7 +63,23 @@ export default function Bespoke() {
             title="How It Works" 
             copy="Allow approximately 4–6 weeks for most bespoke garments. Wedding clients are encouraged to begin earlier. Final timelines depend on fabric availability and fitting requirements." 
           />
-          <div className="mt-16 space-y-24 sm:space-y-32">
+
+          <div className="mt-12">
+            <ImageReveal
+              src={images.bespoke_feature}
+              alt={images.bespokeFeatureAlt}
+              className="aspect-[16/8] sm:aspect-[16/7]"
+              imgClassName="object-center"
+              eager
+            />
+            <div className="mt-4 grid gap-3 border-t border-black/10 pt-4 text-[9px] uppercase tracking-[.19em] text-muted sm:grid-cols-3">
+              <span>Private consultation</span>
+              <span className="sm:text-center">Detailed fitting</span>
+              <span className="sm:text-right">Personal pattern</span>
+            </div>
+          </div>
+
+          <div className="mt-20 space-y-20 sm:space-y-28">
             {steps.map(([num, title, copy, image], i) => (
               <div 
                 key={num} 

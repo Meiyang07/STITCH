@@ -9,10 +9,9 @@ import Newsletter from '../components/common/Newsletter';
 import SectionHeader from '../components/common/SectionHeader';
 import CollectionCard from '../components/collections/CollectionCard';
 import ProcessTimeline from '../components/home/ProcessTimeline';
-import TestimonialSlider from '../components/home/TestimonialSlider';
 import { editorialCategories } from '../data/collections';
 import { fabricGroups } from '../data/fabrics';
-import { images, galleries } from '../data/images';
+import { images, galleries, fallbackImage } from '../data/images';
 
 const customization = {
   Lapel: 'Notch, peak or shawl. Width and gorge height are balanced to your frame and the jacket style.',
@@ -55,14 +54,15 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative flex min-h-screen items-end overflow-hidden bg-ink text-white">
+      <section className="relative flex min-h-[92svh] items-end overflow-hidden bg-ink text-white">
         <motion.img 
-          initial={{ scale: 1.05 }} 
+          initial={{ scale: 1.015 }} 
           animate={{ scale: 1 }} 
-          transition={{ duration: 10, ease: 'linear' }} 
+          transition={{ duration: 8, ease: 'linear' }} 
           src={images.hero} 
           alt={images.heroAlt} 
-          className="absolute inset-0 h-full w-full object-cover" 
+          onError={(event) => { if (event.currentTarget.src !== fallbackImage) event.currentTarget.src = fallbackImage; }}
+          className="absolute inset-0 h-full w-full object-cover object-[58%_center] sm:object-center" 
         />
         <div className="hero-gradient absolute inset-0" />
         <div className="container-lux relative z-10 pb-16 pt-40 sm:pb-24 lg:pb-28">
@@ -72,7 +72,7 @@ export default function Home() {
             transition={{ delay: .2 }} 
             className="text-[11px] font-medium uppercase tracking-[.28em] text-[#d5b983]"
           >
-            BESPOKE TAILORING · KATHMANDU
+            BESPOKE TAILORING · POKHARA
           </motion.p>
           <motion.h1 
             initial={{ opacity: 0, y: 25 }} 
@@ -103,8 +103,25 @@ export default function Home() {
             href="#house" 
             className="mt-14 inline-flex items-center gap-3 text-[9px] uppercase tracking-[.22em] text-white/50 transition-colors hover:text-white/80"
           >
-            Scroll to discover <ArrowDown size={13} strokeWidth={1.5} />
+            Scroll to discover <motion.span animate={{ y: [0, 4, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}><ArrowDown size={13} strokeWidth={1.5} /></motion.span>
           </a>
+        </div>
+      </section>
+
+      {/* Practical studio strip */}
+      <section className="border-b border-black/10 bg-[#FAF8F3]">
+        <div className="container-lux grid divide-y divide-black/10 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+          {[
+            ['POKHARA', 'Private studio fittings'],
+            ['4–6 WEEKS', 'Typical bespoke lead time'],
+            ['30+ POINTS', 'Body and posture measurements'],
+            ['BY APPOINTMENT', 'Focused one-to-one consultation']
+          ].map(([label, copy]) => (
+            <div key={label} className="py-5 sm:px-6 first:sm:pl-0 last:sm:pr-0">
+              <p className="text-[9px] font-medium uppercase tracking-[.2em] text-gold">{label}</p>
+              <p className="mt-1 text-xs leading-5 text-muted">{copy}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -134,8 +151,8 @@ export default function Home() {
         <div className="container-lux">
           <SectionHeader 
             label="SIGNATURE TAILORING" 
-            title="From The Everyday To The Once In A Lifetime" 
-            copy="A considered wardrobe of business, ceremony and traditional tailoring. Each is a starting point, not a fixed template." 
+            title="Tailoring for work, ceremony and everything between" 
+            copy="Explore representative silhouettes for business, weddings, eveningwear and traditional dress. Every piece is adjusted through cloth selection and fitting." 
           />
           <div className="mt-14 grid gap-x-6 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
             {editorialCategories.map((item, i) => (
@@ -274,7 +291,7 @@ export default function Home() {
           <SectionHeader 
             label="CUSTOMIZATION" 
             title={<>Every Detail,<br />Your Decision.</>} 
-            copy="The choices below demonstrate how a bespoke consultation can translate preferences into specific construction and styling decisions." 
+            copy="Lapel, pocket, lining and trouser details are not isolated add-ons. We balance them against the garment, your proportions and where you will wear it." 
           />
           <div className="mt-14 grid gap-10 lg:grid-cols-[.9fr_1.1fr]">
             <div className="grid grid-cols-2 border-l border-t border-black/15 sm:grid-cols-4">
@@ -315,29 +332,42 @@ export default function Home() {
       <section className="border-y border-black/10 bg-white/30 py-16">
         <div className="container-lux grid grid-cols-2 gap-y-10 md:grid-cols-4">
           {[
-            [4, '+', 'Weeks Completion'],
-            [30, '+', 'Measurements'],
-            [5000, '+', 'Fabric Choices'],
-            [100, '%', 'Personalized']
+            [4, '–6', 'Weeks typical lead time'],
+            [30, '+', 'Measurement points'],
+            [2, '+', 'Fitting stages'],
+            [1, '', 'Personal pattern']
           ].map(([n, s, label]) => (
             <div key={label} className="border-l border-black/15 pl-5 sm:pl-7">
               <p className="font-serif text-4xl sm:text-5xl">
                 <Counter end={n} suffix={s} />
               </p>
-              <p className="mt-2 text-[10px] uppercase tracking-[.16em] text-muted">{label}</p>
+              <p className="mt-2 max-w-[150px] text-[9px] uppercase tracking-[.16em] text-muted">{label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Studio principles — avoids invented testimonials while adding real-world trust */}
       <section className="py-24 sm:py-32">
         <div className="container-lux">
-          <SectionHeader 
-            label="CLIENT STORIES" 
-            title="What People Say" 
+          <SectionHeader
+            label="AT THE FITTING"
+            title="What the first conversation should solve"
+            copy="Good tailoring starts before measurements. We use the consultation to understand the occasion, how you dress now and what the garment needs to do."
           />
-          <TestimonialSlider />
+          <div className="mt-14 grid border-y border-black/15 md:grid-cols-3 md:divide-x md:divide-black/15">
+            {[
+              ['01', 'Purpose before style', 'Work, wedding, evening or everyday wear changes the cloth, construction and level of formality.'],
+              ['02', 'Fit before details', 'Shoulder line, balance, length and movement come before lapel width, lining or monogram choices.'],
+              ['03', 'Cloth with context', 'Season, venue, frequency of wear and care expectations matter as much as colour and pattern.']
+            ].map(([num, title, copy]) => (
+              <article key={num} className="py-8 md:px-8 first:md:pl-0 last:md:pr-0">
+                <p className="text-[9px] uppercase tracking-[.2em] text-gold">{num}</p>
+                <h3 className="mt-5 font-serif text-3xl">{title}</h3>
+                <p className="mt-4 text-sm leading-7 text-muted">{copy}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

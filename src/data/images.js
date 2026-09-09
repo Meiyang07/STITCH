@@ -1,117 +1,148 @@
-// Centralized image URLs - high-quality royalty-free tailoring photography
-// Sources: Unsplash, Pexels
+// Faceless tailoring photography used across STITCH.
+// These images intentionally focus on mannequins, garments, hands, tools,
+// fabric and atelier details so the website stays elegant without visible faces.
+
+const pexels = (id, width = 1800) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${width}`;
+
+// Wide, balanced atelier image used as a dependable fallback.
+export const fallbackImage = '/images/fallback-tailoring.svg';
+
+// Core faceless images
+const heroMannequins = pexels(6766385);        // three complete mannequins in atelier
+const bespokeMannequin = pexels(6764954);     // complete black suit on tailor dummy
+const bespokeFitting = pexels(6766284);       // tailor measuring a suit lapel on mannequin
+const measuringMannequin = pexels(6765655);   // tailor working on mannequin
+const cuttingHands = pexels(6461097);         // hands cutting black fabric
+const sewingHands = pexels(5830689);          // hands sewing on machine
+const handFinishing = pexels(8483980);         // hands marking / finishing garment
+const fabricAtelier = pexels(3965543);         // fabric rolls and patterns, no people
+const pressingHands = pexels(10558201);        // hands steaming / pressing shirt
+const weddingHangingSuit = pexels(31517344);   // wedding suit hanging outdoors, no people
+const weddingNavyDetail = pexels(9965914);     // navy wedding jacket / boutonniere, no face
+const weddingTuxedo = pexels(16213982);        // tuxedo on mannequin
+const beigeWeddingSuit = pexels(34457990);     // beige wedding suit hanging, no people
+const whiteFormalSuit = pexels(13077053);      // white suit hanging, no people
+const whiteShirt = pexels(9889565);            // white shirt hanging, no people
+
+const heritageDaura =
+  'https://upload.wikimedia.org/wikipedia/commons/6/6a/National_dress%2C_Nepalese_%28AM_2015.99.1-5%29.jpg';
 
 export const images = {
-  // Hero & Main
-  hero: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=2400&q=90',
-  heroAlt: 'Tailored suit jacket detail',
+  // Homepage hero — wide landscape composition so the full tailoring scene reads better.
+  hero: heroMannequins,
+  heroAlt: 'Three tailored garments displayed on mannequins inside a bespoke tailoring studio',
 
-  // Brand Story & Introduction
-  consultation: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=88',
-  consultationAlt: 'Tailor consulting with client',
-  
-  fitting: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1600&q=88',
-  fittingAlt: 'Suit fitting session',
+  // Bespoke / general tailoring
+  consultation: fabricAtelier,
+  consultationAlt: 'Fabric rolls, patterns and tailoring materials inside an atelier',
 
-  measuring: 'https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=1600&q=88',
-  measuringAlt: 'Tailor measuring client',
+  fitting: bespokeMannequin,
+  fittingAlt: 'Complete bespoke suit displayed on a tailor mannequin',
 
-  // Craftsmanship Details
-  handwork: 'https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=1600&q=88',
-  handworkAlt: 'Hand stitching detail',
+  measuring: measuringMannequin,
+  measuringAlt: 'Tailor adjusting and measuring a suit on a mannequin',
 
-  cutting: 'https://images.unsplash.com/photo-1559551409-dadc959f76b8?auto=format&fit=crop&w=1600&q=88',
-  cuttingAlt: 'Tailor cutting fabric',
+  handwork: handFinishing,
+  handworkAlt: 'Close-up of hands marking and finishing fabric',
 
-  fabric_detail: 'https://images.unsplash.com/photo-1598032895397-b9472444bf93?auto=format&fit=crop&w=1600&q=88',
-  fabricDetailAlt: 'Wool fabric texture close-up',
+  cutting: cuttingHands,
+  cuttingAlt: 'Close-up of hands cutting black tailoring fabric with scissors',
 
-  pattern: 'https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=1600&q=88',
-  patternAlt: 'Pattern making on table',
+  fabric_detail: fabricAtelier,
+  fabricDetailAlt: 'Fabric rolls and sewing patterns in a tailoring studio',
 
-  buttons: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=88',
-  buttonsAlt: 'Suit button and lapel detail',
+  pattern: handFinishing,
+  patternAlt: 'Hands preparing and marking a tailoring pattern',
 
-  // Wedding
-  wedding_hero: 'https://images.unsplash.com/photo-1598808503746-f34c53b9323e?auto=format&fit=crop&w=2200&q=90',
-  weddingHeroAlt: 'Groom in bespoke wedding suit',
+  buttons: weddingNavyDetail,
+  buttonsAlt: 'Close-up of tailored jacket lapel and boutonniere detail',
 
-  wedding_detail: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1600&q=88',
-  weddingDetailAlt: 'Wedding suit preparation',
+  // Wedding — all faceless / garment-only
+  wedding_hero: weddingHangingSuit,
+  weddingHeroAlt: 'Elegant wedding suit hanging outdoors with no person visible',
 
-  // Studio & Atelier
-  studio: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=88',
-  studioAlt: 'Tailoring studio workspace',
+  wedding_detail: weddingNavyDetail,
+  weddingDetailAlt: 'Navy tailored wedding jacket with boutonniere detail',
 
-  atelier: 'https://images.unsplash.com/photo-1556906918-23d377b20a9f?auto=format&fit=crop&w=1400&q=88',
-  atelierAlt: 'Suits hanging in atelier',
+  // Story / atelier
+  studio: fabricAtelier,
+  studioAlt: 'Tailoring atelier filled with fabric rolls and patterns',
 
-  workspace: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1400&q=85',
-  workspaceAlt: 'Tailor working at desk',
+  atelier: fabricAtelier,
+  atelierAlt: 'Quiet tailoring atelier with fabrics and work materials',
 
-  // Fabric Swatches & Materials
-  wool_texture: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=1200&q=88',
-  woolTextureAlt: 'Fine wool fabric texture',
+  workspace: cuttingHands,
+  workspaceAlt: 'Tailoring workbench with hands cutting fabric',
 
-  linen: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1200&q=88',
-  linenAlt: 'Natural linen fabric',
+  wool_texture: fabricAtelier,
+  woolTextureAlt: 'Selection of tailoring fabrics in an atelier',
 
-  fabric_rolls: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1400&q=88',
-  fabricRollsAlt: 'Fabric rolls on shelf',
+  linen: fabricAtelier,
+  linenAlt: 'Natural fabrics stored in a tailoring atelier',
 
-  // Menswear & Suits
-  navy_suit: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1400&q=88',
-  navySuitAlt: 'Navy bespoke suit',
+  fabric_rolls: fabricAtelier,
+  fabricRollsAlt: 'Fabric rolls inside a tailoring studio',
 
-  grey_suit: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1400&q=88',
-  greySuitAlt: 'Grey tailored suit',
+  // Formal garments used in cards
+  navy_suit: weddingNavyDetail,
+  navySuitAlt: 'Navy formal wedding suit detail without a visible face',
 
-  tuxedo: 'https://images.unsplash.com/photo-1555069519-127aadedf1ee?auto=format&fit=crop&w=1400&q=88',
-  tuxedoAlt: 'Black tie tuxedo',
+  grey_suit: heroMannequins,
+  greySuitAlt: 'Tailored suits displayed on mannequins',
 
-  blazer: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1400&q=88',
-  blazerAlt: 'Tailored blazer',
+  tuxedo: weddingTuxedo,
+  tuxedoAlt: 'Wedding tuxedo displayed on a mannequin',
 
-  shirt_detail: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=1400&q=88',
-  shirtDetailAlt: 'White dress shirt detail',
+  blazer: beigeWeddingSuit,
+  blazerAlt: 'Elegant beige tailored suit hanging in an atrium',
 
-  // Bespoke Process
-  consultation_room: 'https://images.unsplash.com/photo-1556906918-23d377b20a9f?auto=format&fit=crop&w=1400&q=88',
-  consultationRoomAlt: 'Private consultation space',
+  shirt_detail: whiteShirt,
+  shirtDetailAlt: 'White tailored shirt hanging neatly',
 
-  measuring_tape: 'https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=1200&q=88',
-  measuringTapeAlt: 'Measuring tape and scissors',
+  consultation_room: fabricAtelier,
+  consultationRoomAlt: 'Tailoring atelier prepared for a fabric consultation',
 
-  pressing: 'https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=1400&q=88',
-  pressingAlt: 'Pressing finished garment',
+  measuring_tape: measuringMannequin,
+  measuringTapeAlt: 'Tailor measuring a garment on a mannequin',
 
-  // Our Story
-  heritage: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=88',
-  heritageAlt: 'Tailoring craftsmanship',
+  pressing: pressingHands,
+  pressingAlt: 'Hands steaming and pressing a white shirt',
 
-  team: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1400&q=88',
-  teamAlt: 'Tailor at work',
+  heritage: heritageDaura,
+  heritageAlt: 'Museum display of a complete Nepali Daura Suruwal set',
 
-  // Contact & Location
-  kathmandu: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?auto=format&fit=crop&w=1400&q=85',
-  kathmanduAlt: 'Kathmandu cityscape',
+  team: sewingHands,
+  teamAlt: 'Close-up of hands sewing fabric in a tailoring workshop',
+
+  white_formal: whiteFormalSuit,
+  whiteFormalAlt: 'White formal wedding suit hanging with no person visible',
+
+  story_feature: heroMannequins,
+  storyFeatureAlt: 'Tailored garments displayed on mannequins in an atelier',
+
+  bespoke_feature: bespokeFitting,
+  bespokeFeatureAlt: 'Tailor measuring the lapel of a bespoke suit on a mannequin during a fitting',
+
+  craft_feature: cuttingHands,
+  craftFeatureAlt: 'Hands cutting tailoring fabric with precision',
+
 };
 
-// Gallery collections for different sections
 export const galleries = {
   atelier: [
-    { src: 'https://images.unsplash.com/photo-1559551409-dadc959f76b8?auto=format&fit=crop&w=900&q=85', alt: 'Cutting', label: 'Cutting' },
-    { src: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=900&q=85', alt: 'Fitting', label: 'Fitting' },
-    { src: 'https://images.unsplash.com/photo-1598032895397-b9472444bf93?auto=format&fit=crop&w=900&q=85', alt: 'Fabrics', label: 'Fabrics' },
-    { src: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=85', alt: 'Suits', label: 'Suits' },
-    { src: 'https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=900&q=85', alt: 'Stitching', label: 'Stitching' },
-    { src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=85', alt: 'Studio', label: 'Studio' }
+    { src: cuttingHands, alt: 'Hands cutting tailoring fabric', label: 'Cutting' },
+    { src: bespokeMannequin, alt: 'Complete suit on a tailor mannequin', label: 'Fitting' },
+    { src: fabricAtelier, alt: 'Fabric rolls inside the atelier', label: 'Fabrics' },
+    { src: heroMannequins, alt: 'Tailored garments displayed on mannequins', label: 'Suits' },
+    { src: sewingHands, alt: 'Hands sewing a garment on a machine', label: 'Stitching' },
+    { src: fabricAtelier, alt: 'Tailoring studio with fabrics and patterns', label: 'Studio' },
   ],
 
   craftsmanship: [
-    { src: 'https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=1200&q=88', alt: 'Hand stitching buttonhole', label: 'Hand Finishing' },
-    { src: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=88', alt: 'Suit button detail', label: 'Button Details' },
-    { src: 'https://images.unsplash.com/photo-1559551409-dadc959f76b8?auto=format&fit=crop&w=1200&q=88', alt: 'Cutting fabric', label: 'Pattern Cutting' },
-    { src: 'https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=1200&q=88', alt: 'Pressing garment', label: 'Pressing' }
-  ]
+    { src: handFinishing, alt: 'Hands marking and finishing a garment', label: 'Hand Finishing' },
+    { src: weddingNavyDetail, alt: 'Tailored jacket detail', label: 'Button Details' },
+    { src: cuttingHands, alt: 'Hands cutting fabric with scissors', label: 'Pattern Cutting' },
+    { src: pressingHands, alt: 'Hands steaming and pressing a shirt', label: 'Pressing' },
+  ],
 };

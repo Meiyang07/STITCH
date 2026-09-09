@@ -10,7 +10,7 @@ export const fabricGroups = [
     composition: '100% Merino Wool', 
     weight: '260g', 
     code: 'IT-260-NV', 
-    image: 'https://images.unsplash.com/photo-1598032895397-b9472444bf93?auto=format&fit=crop&w=1000&q=85', 
+    image: 'https://images.pexels.com/photos/6634559/pexels-photo-6634559.jpeg?auto=compress&cs=tinysrgb&w=1200', 
     description: 'Smooth, breathable cloth suited to year-round tailoring.' 
   },
   { 
@@ -24,7 +24,7 @@ export const fabricGroups = [
     composition: '100% Wool', 
     weight: '320g', 
     code: 'EN-320-CH', 
-    image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=1000&q=85', 
+    image: 'https://images.pexels.com/photos/33038617/pexels-photo-33038617.jpeg?auto=compress&cs=tinysrgb&w=1200', 
     description: 'Structured cloth with a discreet herringbone weave.' 
   },
   { 
@@ -38,7 +38,7 @@ export const fabricGroups = [
     composition: '100% Linen', 
     weight: '220g', 
     code: 'LN-220-SD', 
-    image: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=1000&q=85', 
+    image: 'https://images.pexels.com/photos/10919577/pexels-photo-10919577.jpeg?auto=compress&cs=tinysrgb&w=1200', 
     description: 'Breathable and naturally textured. Develops character with wear.' 
   },
   { 
@@ -52,7 +52,7 @@ export const fabricGroups = [
     composition: '90% Wool / 10% Cashmere', 
     weight: '300g', 
     code: 'CA-300-CM', 
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=85', 
+    image: 'https://images.pexels.com/photos/6634552/pexels-photo-6634552.jpeg?auto=compress&cs=tinysrgb&w=1200', 
     description: 'Soft and warm with a smooth surface.' 
   },
   { 
@@ -66,7 +66,7 @@ export const fabricGroups = [
     composition: '100% Cotton', 
     weight: '130g', 
     code: 'CT-130-WH', 
-    image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1000&q=85', 
+    image: 'https://images.pexels.com/photos/11098224/pexels-photo-11098224.jpeg?auto=compress&cs=tinysrgb&w=1200', 
     description: 'Breathable shirting cotton with a clean finish.' 
   },
   { 
@@ -80,7 +80,7 @@ export const fabricGroups = [
     composition: 'Cotton Velvet', 
     weight: '350g', 
     code: 'VT-350-BG', 
-    image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=85', 
+    image: 'https://images.pexels.com/photos/6843282/pexels-photo-6843282.jpeg?auto=compress&cs=tinysrgb&w=1200', 
     description: 'Dense evening velvet for statement dinner jackets.' 
   },
   { 
@@ -94,7 +94,7 @@ export const fabricGroups = [
     composition: '95% Wool / 5% Elastane', 
     weight: '270g', 
     code: 'WB-270-BL', 
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=85', 
+    image: 'https://images.pexels.com/photos/18463611/pexels-photo-18463611.jpeg?auto=compress&cs=tinysrgb&w=1200', 
     description: 'A restrained check with comfortable stretch.' 
   },
   { 
@@ -108,7 +108,7 @@ export const fabricGroups = [
     composition: '100% Wool', 
     weight: '250g', 
     code: 'WP-250-PS', 
-    image: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1000&q=85', 
+    image: 'https://images.pexels.com/photos/6292/blue-pattern-texture-macro.jpg?auto=compress&cs=tinysrgb&w=1200', 
     description: 'Classic business stripe with a smooth, dry handle.' 
   },
   { 
@@ -122,7 +122,7 @@ export const fabricGroups = [
     composition: '80% Wool / 20% Viscose', 
     weight: '300g', 
     code: 'CK-300-BR', 
-    image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1000&q=85', 
+    image: 'https://images.pexels.com/photos/6045243/pexels-photo-6045243.jpeg?auto=compress&cs=tinysrgb&w=1200', 
     description: 'Warm checked cloth for relaxed jackets and waistcoats.' 
   }
 ];

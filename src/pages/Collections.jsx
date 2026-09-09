@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import CollectionCard from '../components/collections/CollectionCard';
 import SectionHeader from '../components/common/SectionHeader';
 import { collectionFilters, collections } from '../data/collections';
@@ -17,9 +17,9 @@ export default function Collections({ forcedType = null }) {
   return (
     <section className="pb-20 pt-36 sm:pb-28 sm:pt-44">
       <div className="container-lux">
-        <SectionHeader label={forcedType ? forcedType.toUpperCase() : 'COLLECTIONS'} title={forcedType ? `${forcedType} Collection` : 'Tailoring, Not Inventory'} copy="Every style shown is a visual starting point. Final cloth, fit, construction and details are determined through consultation. Prices are sample starting prices only." />
-        {!forcedType && <div className="no-scrollbar mt-8 flex gap-2 overflow-x-auto pb-2">{collectionFilters.map(x => <button key={x} onClick={() => setFilter(x)} className={`focus-lux whitespace-nowrap border px-4 py-2 text-[10px] uppercase tracking-[.16em] ${filter===x?'border-ink bg-ink text-white':'border-black/20 hover:border-gold hover:text-gold'}`}>{x}</button>)}</div>}
-        {list.length ? <div className="mt-12 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">{list.map((item) => <CollectionCard key={item.id} item={item} />)}</div> : <div className="mt-16 border-y border-black/15 py-14 text-center"><h3 className="font-serif text-3xl">No styles in this filter yet.</h3><p className="mt-3 text-sm text-muted">Add more items in src/data/collections.js.</p></div>}
+        <SectionHeader label={forcedType ? forcedType.toUpperCase() : 'COLLECTIONS'} title={forcedType ? `${forcedType} Collection` : 'Styles to begin the conversation'} copy="These are reference silhouettes rather than ready-made stock. Starting prices are shown for orientation; the final quote depends on cloth, construction and customization." />
+        {!forcedType && <div className="no-scrollbar mt-8 flex gap-2 overflow-x-auto pb-2">{collectionFilters.map(x => x === 'Accessories' ? <Link key={x} to="/accessories" className="focus-lux whitespace-nowrap border border-black/20 px-4 py-2 text-[10px] uppercase tracking-[.16em] transition-colors hover:border-gold hover:text-gold">{x}</Link> : <button key={x} onClick={() => setFilter(x)} className={`focus-lux whitespace-nowrap border px-4 py-2 text-[10px] uppercase tracking-[.16em] ${filter===x?'border-ink bg-ink text-white':'border-black/20 hover:border-gold hover:text-gold'}`}>{x}</button>)}</div>}
+        {list.length ? <div className="mt-12 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">{list.map((item) => <CollectionCard key={item.id} item={item} />)}</div> : <div className="mt-16 border-y border-black/15 py-14 text-center"><h3 className="font-serif text-3xl">No styles in this filter yet.</h3><p className="mt-3 text-sm text-muted">Try another category or return to the full collection.</p></div>}
       </div>
     </section>
   );

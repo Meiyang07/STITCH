@@ -57,7 +57,21 @@ export default function Craftsmanship() {
       />
       
       <section className="py-24 sm:py-32">
-        <div className="container-lux space-y-28 sm:space-y-36">
+        <div className="container-lux">
+          <div className="pb-20 sm:pb-28">
+            <ImageReveal
+              src={images.craft_feature}
+              alt={images.craftFeatureAlt}
+              className="aspect-[16/8] sm:aspect-[16/7]"
+              imgClassName="object-center"
+              eager
+            />
+            <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-2 border-t border-black/10 pt-4 text-[9px] uppercase tracking-[.19em] text-muted">
+              <span>Pattern</span><span>Cut</span><span>Canvas</span><span>Fitting</span><span>Finish</span>
+            </div>
+          </div>
+
+          <div className="space-y-24 sm:space-y-32">
           {craft.map(([title, copy, image], i) => (
             <div 
               key={title} 
@@ -77,6 +91,7 @@ export default function Craftsmanship() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </section>
       

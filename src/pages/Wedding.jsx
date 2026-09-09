@@ -29,7 +29,7 @@ const looks = [
   [
     'Traditional', 
     'Daura Suruwal and waistcoat tailoring can be coordinated with the wider wedding wardrobe.', 
-    'https://images.unsplash.com/photo-1619533394727-57d522857f89?auto=format&fit=crop&w=1200&q=85'
+    'https://upload.wikimedia.org/wikipedia/commons/6/6a/National_dress%2C_Nepalese_%28AM_2015.99.1-5%29.jpg'
   ]
 ];
 
@@ -50,7 +50,18 @@ export default function Wedding() {
             title="One Wardrobe, Many Moments" 
             copy="From engagement to ceremony and reception, the tailoring can be planned as a connected set of looks rather than separate purchases." 
           />
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+          <div className="mt-12">
+            <ImageReveal
+              src={images.wedding_hero}
+              alt={images.weddingHeroAlt}
+              className="aspect-[16/8] sm:aspect-[16/7]"
+              imgClassName="object-center"
+              eager
+            />
+          </div>
+
+          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {looks.map(([name, copy, image], i) => (
               <article 
                 key={name} 
