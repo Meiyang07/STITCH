@@ -10,9 +10,9 @@ export default function CollectionCard({ item, editorial = false, className = ''
 
   return (
     <motion.article initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} whileHover={{ y: -4 }} viewport={{ once: true, amount: .12 }} transition={{ duration: .55 }} className={`group ${className}`}>
-      <div className={`relative overflow-hidden bg-warm ${editorial ? 'aspect-[4/5]' : 'aspect-[4/5]'}`}>
+      <div className={`relative overflow-hidden border border-black/8 bg-[#f7f4ee] ${editorial ? 'aspect-[4/5]' : 'aspect-[4/5]'}`}>
         <Link to={path} aria-label={`Explore ${item.name}`} className="block h-full">
-          <img src={item.image} alt={item.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]" />
+          <img src={item.image} alt={item.name} loading="lazy" className="h-full w-full object-contain p-5 sm:p-7 transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
         </Link>
         {item.id && (
           <button

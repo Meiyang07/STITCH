@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import AppErrorBoundary from './components/common/AppErrorBoundary';
+import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
 import './index.css';
 
@@ -16,7 +17,9 @@ ReactDOM.createRoot(root).render(
   <AppErrorBoundary>
     <BrowserRouter>
       <WishlistProvider>
-        <App />
+        <CartProvider>
+          <App />
+        </CartProvider>
       </WishlistProvider>
     </BrowserRouter>
   </AppErrorBoundary>

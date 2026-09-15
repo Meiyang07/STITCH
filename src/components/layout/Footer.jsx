@@ -12,6 +12,7 @@ const groups = [
     ['Bespoke', '/bespoke'],
     ['Wedding', '/wedding'],
     ['Collections', '/collections'],
+    ['Ready-Made', '/readymade'],
     ['Accessories', '/accessories'],
     ['Book a Fitting', '/appointment'],
   ]],
@@ -19,6 +20,7 @@ const groups = [
     ['Profile', '/profile'],
     ['Measurements', '/measurements'],
     ['Wishlist', '/wishlist'],
+    ['Cart', '/cart'],
     ['FAQs', '/faq'],
   ]],
 ];

@@ -1,4 +1,4 @@
-import { Heart, MessageCircle } from 'lucide-react';
+import { Heart, MessageCircle, Scissors } from 'lucide-react';
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AppointmentCTA from '../components/common/AppointmentCTA';
@@ -40,9 +40,9 @@ export default function ProductDetail() {
       <section className="pb-20 pt-28 sm:pt-32">
         <div className="container-lux grid gap-10 lg:grid-cols-[1.16fr_.84fr] lg:gap-14">
           <div className="grid gap-3 sm:grid-cols-2">
-            {item.gallery.map((src, i) => (
+            {(item.gallery?.length ? item.gallery : [item.image]).map((src, i) => (
               <div key={`${src}-${i}`} className={`overflow-hidden bg-warm ${i === 0 ? 'aspect-[4/5] sm:col-span-2 sm:aspect-[5/4]' : 'aspect-[4/5]'}`}>
-                <img src={src} alt={`${item.name} view ${i + 1}`} className="h-full w-full object-cover" />
+                <img src={src} alt={`${item.name} view ${i + 1}`} className="h-full w-full object-contain p-6 sm:p-10" onError={(event) => { event.currentTarget.src = '/images/fallback-product.svg'; }} />
               </div>
             ))}
           </div>
@@ -70,12 +70,11 @@ export default function ProductDetail() {
               </div>
             </div>
 
-            <p className="mt-6 text-xs leading-6 text-muted">
-              Starting price is a guide. Your final quote is confirmed after cloth, construction and customization are selected.
-            </p>
+            <div className="mt-6 border-l-2 border-gold bg-white/30 px-4 py-3"><p className="flex items-center gap-2 text-[10px] uppercase tracking-[.16em] text-gold"><Scissors size={14}/> Custom-made · not available for direct purchase</p><p className="mt-2 text-xs leading-6 text-muted">Starting price is a guide. Your final quote is confirmed after cloth, construction, measurements and customization are selected.</p></div>
 
             <div className="mt-7 space-y-3">
-              <Button to="/appointment" className="w-full">Book a Fitting</Button>
+              <Button to={`/appointment?product=${item.slug}`} className="w-full">Book a Fitting</Button>
+              <Button to="/readymade" variant="outline" className="w-full">Shop Ready-Made Instead</Button>
               <Button
                 onClick={() => toggle({ id: item.id, kind: 'style', name: item.name, image: item.image, slug: item.slug, price: item.price })}
                 variant="outline"

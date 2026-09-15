@@ -18,6 +18,9 @@ export default function Layout() {
       '/': 'Premium Bespoke Tailoring in Nepal | Stitch',
       '/bespoke': 'Bespoke Suits in Pokhara | Stitch',
       '/collections': 'Tailored Collections | Stitch',
+      '/readymade': 'Ready-Made Clothing | Stitch',
+      '/cart': 'Shopping Cart | Stitch',
+      '/checkout': 'Checkout | Stitch',
       '/wedding': 'Wedding Suits in Nepal | Stitch',
       '/fabrics': 'Suit & Traditional Fabrics | Stitch',
       '/craftsmanship': 'Bespoke Craftsmanship | Stitch',
@@ -26,12 +29,13 @@ export default function Layout() {
       '/profile': 'Profile | Stitch',
       '/login': 'Login | Stitch',
       '/signup': 'Create Account | Stitch',
+      '/forgot-password': 'Reset Password | Stitch',
       '/measurements': 'Measurement Guide | Stitch',
       '/wishlist': 'Wishlist | Stitch',
       '/contact': 'Custom Tailoring Pokhara | Stitch',
       '/faq': 'Tailoring FAQs | Stitch',
     };
-    document.title = titles[location.pathname] || (location.pathname.startsWith('/style/') ? 'Bespoke Style | Stitch' : 'Stitch — Bespoke Tailoring');
+    document.title = titles[location.pathname] || (location.pathname.startsWith('/style/') ? 'Bespoke Style | Stitch' : location.pathname.startsWith('/readymade/') ? 'Ready-Made | Stitch' : 'Stitch — Bespoke Tailoring');
   }, [location.pathname]);
 
   useEffect(() => {
@@ -65,7 +69,7 @@ export default function Layout() {
         )}
       </AnimatePresence>
 
-      <Link to="/appointment" className="fixed inset-x-4 bottom-4 z-40 border border-white/10 bg-ink px-5 py-4 text-center text-[10px] uppercase tracking-[.2em] text-white shadow-soft md:hidden">Book a Fitting</Link>
+      {!['/readymade', '/cart', '/checkout'].some((route) => location.pathname.startsWith(route)) && <Link to="/appointment" className="fixed inset-x-4 bottom-4 z-40 border border-white/10 bg-ink px-5 py-4 text-center text-[10px] uppercase tracking-[.2em] text-white shadow-soft md:hidden">Book a Fitting</Link>}
       <AnimatePresence>{toast && <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="fixed bottom-20 left-1/2 z-[80] -translate-x-1/2 bg-ink px-5 py-3 text-xs text-white shadow-soft md:bottom-6">{toast}</motion.div>}</AnimatePresence>
     </div>
   );

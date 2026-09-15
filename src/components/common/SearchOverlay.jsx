@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { collections } from '../../data/collections';
 import { fabricGroups } from '../../data/fabrics';
 import { accessories } from '../../data/accessories';
+import { readyMadeProducts } from '../../data/readymade';
 
 const pageResults = [
   {
@@ -20,6 +21,13 @@ const pageResults = [
     path: '/collections',
     meta: 'Suits, shirts, tuxedos, trousers and traditional wear',
     keywords: 'collection suit shirt tuxedo trouser blazer waistcoat traditional daura suruwal',
+  },
+  {
+    title: 'Ready-Made',
+    type: 'Page',
+    path: '/readymade',
+    meta: 'Standard-size garments available for direct purchase',
+    keywords: 'ready made ready-made shop buy men women blazer shirt trouser suit clothing cart checkout',
   },
   {
     title: 'Wedding Tailoring',
@@ -112,6 +120,14 @@ const searchableItems = [
       ...(item.colors || []),
       ...(item.features || []),
     ].join(' '),
+  })),
+  ...readyMadeProducts.map((item) => ({
+    title: item.name,
+    type: 'Ready-Made',
+    path: `/readymade/${item.slug}`,
+    image: item.image,
+    meta: `${item.gender} · ${item.category} · ${formatPrice(item.price)}`,
+    keywords: [item.gender, item.category, item.material, item.description, ...(item.sizes || []), ...(item.colors || [])].join(' '),
   })),
   ...accessories.map((item) => ({
     title: item.name,
@@ -211,6 +227,7 @@ export default function SearchOverlay({ open, onClose }) {
 
   const suggestions = [
     ['Bespoke suits', 'bespoke suit'],
+    ['Ready-Made', 'ready made'],
     ['Wedding', 'wedding'],
     ['Wool fabrics', 'wool'],
     ['Accessories', 'accessories'],
@@ -245,7 +262,7 @@ export default function SearchOverlay({ open, onClose }) {
                 ref={inputRef}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search suits, fabrics, accessories, wedding…"
+                placeholder="Search ready-made, suits, fabrics, accessories…"
                 aria-label="Search the STITCH website"
                 className="!border-0 !bg-transparent !p-0 !text-[16px] !shadow-none placeholder:text-muted/65 focus:!border-0 focus:!shadow-none sm:text-[18px]"
               />
@@ -298,7 +315,7 @@ export default function SearchOverlay({ open, onClose }) {
                       >
                         {result.image ? (
                           <div className="h-[58px] w-[58px] overflow-hidden bg-warm sm:h-[72px] sm:w-[72px]">
-                            <img src={result.image} alt="" onError={(event) => { event.currentTarget.src = '/images/fallback-tailoring.svg'; }} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]" />
+                            <img src={result.image} alt="" onError={(event) => { event.currentTarget.src = '/images/fallback-product.svg'; }} className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.035]" />
                           </div>
                         ) : (
                           <div className="flex h-[58px] w-[58px] items-center justify-center border border-black/12 bg-[#FAF8F3] text-[9px] uppercase tracking-[.13em] text-muted sm:h-[72px] sm:w-[72px]">

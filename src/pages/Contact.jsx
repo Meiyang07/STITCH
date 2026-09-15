@@ -4,13 +4,19 @@ import Button from '../components/common/Button';
 import SectionHeader from '../components/common/SectionHeader';
 import siteConfig from '../config/siteConfig';
 import { images } from '../data/images';
+import { digitsOnly, isValidPhone } from '../utils/phone';
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [phone, setPhone] = useState('');
+  const [error, setError] = useState('');
 
   const submit = (event) => {
     event.preventDefault();
+    setError('');
+    if (!isValidPhone(phone)) { setError('Phone number must be exactly 10 digits.'); return; }
     setSent(true);
+    setPhone('');
     event.currentTarget.reset();
   };
 
@@ -35,11 +41,11 @@ export default function Contact() {
 
             <form onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
               <label className="text-xs uppercase tracking-wider text-muted">Full Name<input required className="mt-2" /></label>
-              <label className="text-xs uppercase tracking-wider text-muted">Phone<input required placeholder="+977" className="mt-2" /></label>
+              <label className="text-xs uppercase tracking-wider text-muted">Phone · 10 digits<input required inputMode="numeric" pattern="[0-9]{10}" maxLength="10" value={phone} onChange={(e) => setPhone(digitsOnly(e.target.value))} placeholder="98XXXXXXXX" className="mt-2" /></label>
               <label className="text-xs uppercase tracking-wider text-muted">Email<input required type="email" className="mt-2" /></label>
               <label className="text-xs uppercase tracking-wider text-muted">Subject<input required className="mt-2" /></label>
               <label className="text-xs uppercase tracking-wider text-muted sm:col-span-2">Message<textarea required rows="6" className="mt-2" placeholder="Tell us what you are looking for, your event date if relevant, and any fit or style questions." /></label>
-              <div className="sm:col-span-2"><Button type="submit">Prepare Enquiry</Button></div>
+              {error && <p className="sm:col-span-2 border-l-2 border-red-700 pl-3 text-sm normal-case tracking-normal text-red-800">{error}</p>}<div className="sm:col-span-2"><Button type="submit">Prepare Enquiry</Button></div>
             </form>
 
             <div className="mt-12 grid gap-6 border-y border-black/15 py-7 sm:grid-cols-3">

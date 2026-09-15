@@ -8,10 +8,12 @@ import ImageReveal from '../components/common/ImageReveal';
 import Newsletter from '../components/common/Newsletter';
 import SectionHeader from '../components/common/SectionHeader';
 import CollectionCard from '../components/collections/CollectionCard';
+import ReadyMadeCard from '../components/collections/ReadyMadeCard';
 import ProcessTimeline from '../components/home/ProcessTimeline';
 import { editorialCategories } from '../data/collections';
 import { fabricGroups } from '../data/fabrics';
 import { images, galleries, fallbackImage } from '../data/images';
+import { readyMadeProducts } from '../data/readymade';
 
 const customization = {
   Lapel: 'Notch, peak or shawl. Width and gorge height are balanced to your frame and the jacket style.',
@@ -163,6 +165,19 @@ export default function Home() {
                 className={i === 1 || i === 4 ? 'lg:mt-16' : ''} 
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ready-Made Shop */}
+      <section className="py-24 sm:py-32">
+        <div className="container-lux">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHeader label="READY-MADE" title="For when you need it now" copy="Standard-size pieces that can be purchased directly online. Custom tailoring remains separate and always begins with a fitting." />
+            <Button to="/readymade" variant="outline" className="shrink-0">Shop Ready-Made</Button>
+          </div>
+          <div className="mt-12 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+            {readyMadeProducts.slice(0, 3).map((item) => <ReadyMadeCard key={item.id} item={item}/>)}
           </div>
         </div>
       </section>

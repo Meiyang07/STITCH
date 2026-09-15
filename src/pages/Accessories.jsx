@@ -1,22 +1,26 @@
-import { Heart, MessageCircle } from 'lucide-react';
+import { Heart, MessageCircle, ShoppingBag, Zap } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import AccessoryCard from '../components/collections/AccessoryCard';
 import Button from '../components/common/Button';
 import Modal from '../components/common/Modal';
 import SectionHeader from '../components/common/SectionHeader';
 import siteConfig from '../config/siteConfig';
 import { useWishlist } from '../context/WishlistContext';
+import { useCart } from '../context/CartContext';
 import { accessories, accessoryFilters } from '../data/accessories';
+import { getInventoryItemByName } from '../utils/adminStorage';
 
 export default function Accessories() {
   const [params, setParams] = useSearchParams();
+  const navigate = useNavigate();
   const requestedCategory = params.get('category');
   const requestedItem = params.get('item');
   const initialCategory = accessoryFilters.includes(requestedCategory) ? requestedCategory : 'All';
   const [filter, setFilter] = useState(initialCategory);
   const [selected, setSelected] = useState(null);
   const { toggle, has } = useWishlist();
+  const { addItem } = useCart();
 
   useEffect(() => {
     if (!requestedItem) return;
@@ -56,6 +60,9 @@ export default function Accessories() {
   };
 
   const selectedSaved = selected ? has(selected.id, 'accessory') : false;
+  const selectedInventory = selected ? getInventoryItemByName(selected.name) : null;
+  const selectedStock = Math.max(0, Number(selectedInventory?.stock || 0));
+  const selectedAvailable = selectedStock > 0;
   const whatsappText = selected ? encodeURIComponent(`Hello, I would like to ask about the ${selected.name}.`) : '';
 
   return (
@@ -65,7 +72,7 @@ export default function Accessories() {
           <SectionHeader
             label="ACCESSORIES"
             title="The finishing details"
-            copy="Ties, cufflinks, pocket squares, belts and small details selected to work with the garment rather than compete with it. Prices are sample starting points and can be updated in accessories.js."
+            copy="Ties, cufflinks, pocket squares, belts and finishing details. These ready-stock accessories can be purchased directly or saved to your wishlist."
           />
 
           <div className="no-scrollbar mt-8 flex gap-2 overflow-x-auto pb-2">
@@ -83,7 +90,7 @@ export default function Accessories() {
 
           <div className="mt-8 flex flex-col gap-2 border-y border-black/12 py-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
             <p>{list.length} accessories shown</p>
-            <p>Styling items only · no online checkout</p>
+            <p>Ready-stock accessories · direct purchase available</p>
           </div>
 
           <div className="mt-10 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -107,11 +114,14 @@ export default function Accessories() {
             <img
               src={selected.image}
               alt={selected.name}
-              onError={(event) => { event.currentTarget.src = '/images/fallback-tailoring.svg'; }}
+              onError={(event) => { const img = event.currentTarget; if (selected.fallbackImage && img.src !== selected.fallbackImage) img.src = selected.fallbackImage; else if (!img.src.endsWith('/images/fallback-product.svg')) img.src = '/images/fallback-product.svg'; }}
               className="aspect-[4/5] w-full border border-black/8 bg-white object-contain p-4 sm:p-5"
             />
             <div>
               <p className="eyebrow">{selected.category}</p>
+              <p className={`mt-4 inline-flex border px-3 py-2 text-[9px] uppercase tracking-[.16em] ${selectedAvailable ? 'border-emerald-700/25 text-emerald-800' : 'border-red-900/20 text-red-900'}`}>
+                {selectedAvailable ? `Available · ${selectedStock} in stock` : 'Not Available'}
+              </p>
               <p className="mt-4 text-sm leading-7 text-muted">{selected.description}</p>
               <dl className="mt-6 space-y-3 text-sm">
                 {[
@@ -128,6 +138,8 @@ export default function Accessories() {
               </dl>
 
               <div className="mt-7 space-y-3">
+                <Button disabled={!selectedAvailable} onClick={() => { if (selectedAvailable) addItem({ id: selected.id, kind: 'accessory', name: selected.name, image: selected.image, price: selected.price, slug: selected.slug, path: `/accessories?item=${selected.slug}` }, 1); }} className="w-full disabled:cursor-not-allowed disabled:opacity-40"><ShoppingBag size={15}/> {selectedAvailable ? 'Add to Cart' : 'Not Available'}</Button>
+                <Button disabled={!selectedAvailable} onClick={() => { if (!selectedAvailable) return; addItem({ id: selected.id, kind: 'accessory', name: selected.name, image: selected.image, price: selected.price, slug: selected.slug, path: `/accessories?item=${selected.slug}` }, 1); navigate('/checkout'); }} variant="gold" className="w-full disabled:cursor-not-allowed disabled:opacity-40"><Zap size={15}/> {selectedAvailable ? 'Buy Now' : 'Not Available'}</Button>
                 <Button
                   onClick={() => toggle({ id: selected.id, kind: 'accessory', name: selected.name, image: selected.image, price: selected.price, slug: selected.slug, path: `/accessories?item=${selected.slug}` })}
                   variant="outline"
